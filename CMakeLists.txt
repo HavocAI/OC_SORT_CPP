@@ -11,7 +11,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS_RELEASE} /O2") # 开启编译优化
 
 find_package(Eigen3 REQUIRED)
 # opencv 不是必须的，如果需要运行test.cpp，请在 vcpkg.json 处加上opencv再编译
-#find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED)
 
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
@@ -22,9 +22,9 @@ target_include_directories(OCLib PUBLIC include)
 target_link_libraries(OCLib Eigen3::Eigen)
 
 # 直接读取MOT17官方的格式转为输入数据，文件在: test_data/MOT17-02.txt 处。
-add_executable(test_MOT read_MOTtxt.cpp)
-target_link_libraries(test_MOT PUBLIC Eigen3::Eigen OCLib)
+# add_executable(test_MOT read_MOTtxt.cpp)
+# target_link_libraries(test_MOT PUBLIC Eigen3::Eigen OCLib)
 
 # note： 主测试用的是 test , 使用ocsort追踪，并且绘制到屏幕上。
-add_executable(test test.cpp)
-target_link_libraries(test PUBLIC Eigen3::Eigen OCLib ${OpenCV_LIBS})
+# add_executable(test test.cpp)
+# target_link_libraries(test PUBLIC Eigen3::Eigen OCLib ${OpenCV_LIBS})
