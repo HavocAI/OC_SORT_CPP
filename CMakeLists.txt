@@ -14,7 +14,7 @@ find_package(Eigen3 REQUIRED)
 # find_package(OpenCV REQUIRED)
 
 
-set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+# set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 file(GLOB SRC_LIST src/*.cpp)
 
 add_library(OCLib SHARED ${SRC_LIST})
